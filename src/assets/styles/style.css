@@ -25,10 +25,11 @@ aside {
   width: 25vw;
   height: 100vh;
   position: sticky;
+  background-color: #0e1013;
   padding: 30px;
   margin: 40px 20px;
   border-radius: 20px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 aside h4 {
@@ -44,6 +45,7 @@ aside ul li {
 }
 
 .menu a {
+  display: block;
   font-size: 24px;
   text-decoration: none;
   color: inherit;
@@ -61,19 +63,31 @@ aside ul li {
   width: 75vw;
   display: flex;
   flex-direction: column;
+  background-color: #0e1013;
   padding: 0px 40px;
   margin: 40px;
   border-radius: 20px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 
-.news article {
+.last-product, .last-user {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 50px;
+  margin: 30px 0px;
+}
+
+.last-product div img, .last-user div img {
+  max-width: 260px;
+}
+
+.last-product-details p, .last-user-details p {
+  line-height: 1.5;
   margin: 20px 0;
 }
 
 .body section {
-  background-color: #0e1013;
-  /* opacity: 0.9; */
+  /* background-color: #0e1013; */
   border-radius: 20px;
   padding: 20px;
   margin: 20px 0;
