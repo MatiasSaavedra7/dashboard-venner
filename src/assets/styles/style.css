@@ -120,8 +120,18 @@ th {
   padding: 8px;
 }
 
+tr:hover, tr:nth-child(even):hover {
+  background-color: #5e0d26;
+}
+
 tr:nth-child(even) {
   background-color: black;
+}
+
+.products button {
+  font-size: 16px;
+  padding: 5px 10px;
+  margin: 10px 30px 0 0;
 }
 
 /* SECCION COUNTRIES */

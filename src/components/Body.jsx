@@ -10,11 +10,11 @@ export default function Body() {
   return (
     <div className="body">
       <Routes>
-        <Route path="/" Component={News} />
-        <Route path="/products" Component={Products} />
-        <Route path="/countries" Component={Countries} />
-        <Route path="/grapes" Component={Grapes} />
-        <Route path="/users" Component={Users} />
+        <Route path="/" element={<News/>} />
+        <Route path="/products" element={<Products/>} />
+        <Route path="/countries" element={<Countries/>} />
+        <Route path="/grapes" element={<Grapes/>} />
+        <Route path="/users" element={<Users/>} />
       </Routes>
     </div>
   );

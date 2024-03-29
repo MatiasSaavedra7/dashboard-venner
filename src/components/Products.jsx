@@ -1,56 +1,84 @@
+import { useState, useEffect } from "react";
+
 export default function Products() {
-    return (
-        <section className="products">
-          <h4>Products</h4>
-          <hr />
-          <p>Total de productos: xxx</p>
-          <table>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Grape</th>
-              <th>Country</th>
-              <th>Price</th>
+  const [products, setProducts] = useState([]);
+  const [page, setPage] = useState(1)
+
+  useEffect(() => {
+    console.log("%cse montó el componente", "color: green");
+    fetch("http://localhost:3000/api/products")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data.products);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    console.log('%cse actualizó el componente', 'color: yellow');  
+  }, [products]);
+
+  useEffect(() => {
+    return () => {
+      console.log('%cse desmontó el componente', 'color: red');
+    }
+  }, []);
+
+  const nextPage = async () => {
+    await setPage(page + 1);
+    console.log(page);
+    console.log(`http://localhost:3000/api/products?page=${page}`);
+
+    fetch(`http://localhost:3000/api/products?page=${page}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data.products);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const previousPage = async () => {
+    await setPage(page - 1);
+    console.log(page);
+    console.log(`http://localhost:3000/api/products?page=${page}`);
+
+    fetch(`http://localhost:3000/api/products?page=${page}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data.products);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  return (
+    <section className="products">
+      <h4>Products</h4>
+      <hr />
+      <p>Total de productos: xxx</p>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Grape</th>
+          <th>Country</th>
+          <th>Price</th>
+        </tr>
+        {products.length === 0 && <p>Cargando....</p>}
+        {products.map((product, i) => {
+          return (
+            <tr key={i}>
+              <td>{product.id}</td>
+              <td>{product.name}</td>
+              {product.grapes && product.grapes.name ? <td>{product.grapes.name}</td> : <td> - </td>}
+              {product.countries && product.countries.name ? <td>{product.countries.name}</td> : <td> - </td>}
+              <td>{product.price}</td>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>Vino 1</td>
-              <td>Grape 1</td>
-              <td>Country 1</td>
-              <td>Price 1</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Vino 2</td>
-              <td>Grape 2</td>
-              <td>Country 2</td>
-              <td>Price 2</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Vino 3</td>
-              <td>Grape 3</td>
-              <td>Country 3</td>
-              <td>Price 3</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Vino 4</td>
-              <td>Grape 4</td>
-              <td>Country 4</td>
-              <td>Price 4</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Vino 5</td>
-              <td>Grape 5</td>
-              <td>Country 5</td>
-              <td>Price 5</td>
-            </tr>
-          </table>
-          <br />
-          <button>Previous Products</button>
-          <button>Next Products</button>
-        </section>
-    )
+          );
+        })}
+      </table>
+      <br />
+      <button onClick={() => previousPage()}>Previous Products</button>
+      <button onClick={() => nextPage ()}>Next Products</button>
+    </section>
+  );
 }
