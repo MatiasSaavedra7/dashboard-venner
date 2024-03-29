@@ -6,28 +6,28 @@ export default function Aside() {
       <h4>Menu</h4>
       <ul className="menu">
         <li>
-          <Link to="/" exact>
-            <a href="">Home</a>
+          <Link to="/">
+            Home
           </Link>
         </li>
         <li>
-          <Link to="/products" exact>
-            <a href="">Products</a>
+          <Link to="/products">
+            Products
           </Link>
         </li>
         <li>
-          <Link to="/grapes" exact>
-            <a href="">Grapes</a>
+          <Link to="/grapes">
+            Grapes
           </Link>
         </li>
         <li>
-          <Link to="/countries" exact>
-            <a href="">Countries</a>
+          <Link to="/countries">
+            Countries
           </Link>
         </li>
         <li>
-          <Link to="/users" exact>
-            <a href="">Users</a>
+          <Link to="/users">
+            Users
           </Link>
         </li>
       </ul>

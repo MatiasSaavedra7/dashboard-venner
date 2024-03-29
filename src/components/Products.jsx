@@ -5,11 +5,12 @@ export default function Products() {
   const [page, setPage] = useState(1)
 
   useEffect(() => {
+
     console.log("%cse montó el componente", "color: green");
+
     fetch("http://localhost:3000/api/products")
       .then((response) => response.json())
-      .then((data) => {
-        setProducts(data.products);
+      .then((data) => {setProducts(data.products);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -18,11 +19,11 @@ export default function Products() {
     console.log('%cse actualizó el componente', 'color: yellow');  
   }, [products]);
 
-  useEffect(() => {
-    return () => {
-      console.log('%cse desmontó el componente', 'color: red');
-    }
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     console.log('%cse desmontó el componente', 'color: red');
+  //   }
+  // }, []);
 
   const nextPage = async () => {
     await setPage(page + 1);
