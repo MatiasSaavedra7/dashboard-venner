@@ -1,4 +1,9 @@
 import { Link } from "react-router-dom";
+import { FaHouse } from "react-icons/fa6";
+import { FaWineBottle } from "react-icons/fa6";
+import { FaWineGlassEmpty } from "react-icons/fa6";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 export default function Aside() {
   return (
@@ -7,27 +12,27 @@ export default function Aside() {
       <ul className="menu">
         <li>
           <Link to="/">
-            Home
+            <FaHouse/> Home
           </Link>
         </li>
         <li>
           <Link to="/products">
-            Products
+            <FaWineBottle/> Products
           </Link>
         </li>
         <li>
           <Link to="/grapes">
-            Grapes
+            <FaWineGlassEmpty/> Grapes
           </Link>
         </li>
         <li>
           <Link to="/countries">
-            Countries
+            <FaMapMarkerAlt/> Countries
           </Link>
         </li>
         <li>
           <Link to="/users">
-            Users
+            <FaUser/> Users
           </Link>
         </li>
       </ul>
