@@ -30,7 +30,7 @@ export default function Users() {
     <section className="users">
       <h4>Users</h4>
       <hr />
-      <p>Total de usuarios: {page.count}</p>
+      <p>Total de usuarios: {page.count? page.count : "Cargando..."}</p>
       <table>
       <thead>
         <tr>
