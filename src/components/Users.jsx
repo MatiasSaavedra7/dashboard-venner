@@ -1,55 +1,67 @@
+import { useState, useEffect } from "react";
+
 export default function Users() {
-    return (
-        <section className="users">
-          <h4>Users</h4>
-          <hr />
-          <table>
+  let [users, setUsers] = useState([]);
+  let [page, setPage] = useState({});
+
+  useEffect(() => {
+    console.log("%cse montó el componente", "color: green");
+
+    // Obtener los datos iniciales (primera página)
+    fetch("http://localhost:3000/api/users")
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data.users);
+        setPage(data.meta);
+      });
+  }, []);
+
+  const changePage = (url) => {
+    // Realizar una solicitud a la API con el enlace de paginación proporcionado (Next o Previous)
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data.users);
+        setPage(data.meta);
+      });
+  };
+
+  return (
+    <section className="users">
+      <h4>Users</h4>
+      <hr />
+      <p>Total de usuarios: {page.count}</p>
+      <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Rol</th>
+        </tr>
+        </thead>
+        <tbody>
+        {users.length === 0 ? (
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Lastname</th>
-              <th>Email</th>
-              <th>Rol</th>
+              <td colSpan="5">Cargando....</td>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>Name 1</td>
-              <td>Lastname 1</td>
-              <td>Email 1</td>
-              <td>Rol 1</td>
+          ) : (
+        users.map((user, i) => (
+            <tr key={i}>
+              <td>{user.id}</td>
+              <td>{user.firstName}</td>
+              <td>{user.lastName}</td>
+              <td>{user.email}</td>
+              {parseInt(user.rol_id) === 1 ? <td>Administrador</td> : <td>Cliente</td>}
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Name 2</td>
-              <td>Lastname 2</td>
-              <td>Email 2</td>
-              <td>Rol 2</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Name 3</td>
-              <td>Lastname 3</td>
-              <td>Email 3</td>
-              <td>Rol 3</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Name 4</td>
-              <td>Lastname 4</td>
-              <td>Email 4</td>
-              <td>Rol 4</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Name 5</td>
-              <td>Lastname 5</td>
-              <td>Email 5</td>
-              <td>Rol 5</td>
-            </tr>
-          </table>
-          <br />
-          <button>Previous Products</button>
-          <button>Next Products</button>
-        </section>
-    )
+          ))
+        )}
+        </tbody>
+      </table>
+      <br />
+      <button onClick={() => changePage(page.previous)}>Previous Users</button>
+      <button onClick={() => changePage(page.next)}>Next Users</button>
+    </section>
+  );
 }
