@@ -16,7 +16,7 @@ export default function Countries() {
 
   return (
     <section className="countries">
-      <h4>Countries</h4>
+      <h4>Países</h4>
       <div>
         {countries.length === 0 ? (
           <p>Cargando...</p>

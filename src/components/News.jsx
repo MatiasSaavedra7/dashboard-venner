@@ -29,7 +29,7 @@ export default function News() {
 
   return (
     <section className="news">
-      <h4>News</h4>
+      <h4>Noticias</h4>
       <hr />
       {/* <!-- ULTIMO PRODUCTO AGREGADO --> */}
 
@@ -42,7 +42,7 @@ export default function News() {
           </div>
           <div className="last-product-details">
             <h2>Nombre: {lastProduct.name}</h2>
-            <p>Pais de Origen: {lastProduct.countries.name}</p>
+            <p>País de Origen: {lastProduct.countries.name}</p>
             <p className="last-product-description">
               Descripción: {lastProduct.description}
             </p>
