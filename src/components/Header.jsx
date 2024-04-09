@@ -12,7 +12,7 @@ export default function Header() {
           <img src={Logo} alt="Logo de Venner" />
         </div>
         <div className="search-container">
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Buscar..." />
           <button type="submit"><PiMagnifyingGlassBold/></button>
         </div>
         <div className="icons-container">

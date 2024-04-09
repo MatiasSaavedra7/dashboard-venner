@@ -8,31 +8,31 @@ import { FaUser } from "react-icons/fa";
 export default function Aside() {
   return (
     <aside>
-      <h4>Menu</h4>
+      <h4>Menú</h4>
       <ul className="menu">
         <li>
           <Link to="/">
-            <FaHouse/> Home
+            <FaHouse/> Inicio
           </Link>
         </li>
         <li>
           <Link to="/products">
-            <FaWineBottle/> Products
+            <FaWineBottle/> Productos
           </Link>
         </li>
         <li>
           <Link to="/grapes">
-            <FaWineGlassEmpty/> Grapes
+            <FaWineGlassEmpty/> Uvas
           </Link>
         </li>
         <li>
           <Link to="/countries">
-            <FaMapMarkerAlt/> Countries
+            <FaMapMarkerAlt/> Países
           </Link>
         </li>
         <li>
           <Link to="/users">
-            <FaUser/> Users
+            <FaUser/> Usuarios
           </Link>
         </li>
       </ul>
