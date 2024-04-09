@@ -10,7 +10,8 @@ export default function Countries() {
     fetch("http://localhost:3000/api/products")
       .then((response) => response.json())
       .then((data) => {
-        setCountries(data.meta.categories.countries);
+        const sortedCountries = data.meta.categories.countries.sort((a, b) => b.count - a.count);
+        setCountries(sortedCountries);
       });
   }, []);
 
