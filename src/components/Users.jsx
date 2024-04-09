@@ -28,15 +28,14 @@ export default function Users() {
 
   return (
     <section className="users">
-      <h4>Users</h4>
+      <h4>Usuarios</h4>
       <hr />
       <p>Total de usuarios: {page.count? page.count : "Cargando..."}</p>
       <table>
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Lastname</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
           <th>Email</th>
           <th>Rol</th>
         </tr>
@@ -49,7 +48,6 @@ export default function Users() {
           ) : (
         users.map((user, i) => (
             <tr key={i}>
-              <td>{user.id}</td>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
               <td>{user.email}</td>
@@ -60,8 +58,8 @@ export default function Users() {
         </tbody>
       </table>
       <br />
-      <button onClick={() => changePage(page.previous)}>Previous Users</button>
-      <button onClick={() => changePage(page.next)}>Next Users</button>
+      <button onClick={() => changePage(page.previous)}>Anterior</button>
+      <button onClick={() => changePage(page.next)}>Siguiente</button>
     </section>
   );
 }

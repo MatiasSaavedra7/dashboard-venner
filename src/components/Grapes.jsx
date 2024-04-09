@@ -16,7 +16,7 @@ export default function Grapes() {
 
   return (
     <section className="grapes">
-      <h4>Grapes</h4>
+      <h4>Uvas</h4>
       <div>
         {grapes.length === 0 ? (
           <p>Cargando...</p>

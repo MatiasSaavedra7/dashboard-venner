@@ -29,7 +29,7 @@ export default function News() {
 
   return (
     <section className="news">
-      <h4>Noticias</h4>
+      <h4>Novedades</h4>
       <hr />
       {/* <!-- ULTIMO PRODUCTO AGREGADO --> */}
 
@@ -41,7 +41,7 @@ export default function News() {
             <img src={lastProduct.image} alt="product" />
           </div>
           <div className="last-product-details">
-            <h2>Nombre: {lastProduct.name}</h2>
+            <h2>Último producto agregado: {lastProduct.name}</h2>
             <p>País de Origen: {lastProduct.countries.name}</p>
             <p className="last-product-description">
               Descripción: {lastProduct.description}
@@ -66,7 +66,7 @@ export default function News() {
             <img src={lastUser.image} alt="user" />
           </div>
           <div className="last-user-details">
-            <h2>Nombre del Usuario: {lastUser.firstName + " " + lastUser.lastName}</h2>
+            <h2>Último usuario agregado: {lastUser.firstName + " " + lastUser.lastName}</h2>
             <p className="last-user-email">Email del Usuario: {lastUser.email}</p>
             <p className="last-user-rol">Rol del User: {lastUser.roles.name}</p>
           </div>

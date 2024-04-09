@@ -28,7 +28,7 @@ export default function Test() {
 
   return (
     <section className="products">
-      <h4>Products</h4>
+      <h4>Productos</h4>
 
       <hr />
 
@@ -37,11 +37,10 @@ export default function Test() {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Grape</th>
-            <th>Country</th>
-            <th>Price</th>
+            <th>Nombre</th>
+            <th>Uva</th>
+            <th>País</th>
+            <th>Precio</th>
           </tr>
         </thead>
 
@@ -53,7 +52,6 @@ export default function Test() {
           ) : (
             products.map((product, i) => (
               <tr key={i}>
-                <td>{product.id}</td>
                 <td>{product.name}</td>
                 <td>{product.grapes?.name || "-"}</td>
                 <td>{product.countries?.name || "-"}</td>
@@ -66,8 +64,8 @@ export default function Test() {
 
       <br />
 
-      <button onClick={() => changePage(page.previous)}>Previous Products</button>
-      <button onClick={() => changePage(page.next)}>Next Products</button>
+      <button onClick={() => changePage(page.previous)}>Anterior</button>
+      <button onClick={() => changePage(page.next)}>Siguiente</button>
     </section>
   );
 }
