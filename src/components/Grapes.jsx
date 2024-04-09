@@ -10,7 +10,8 @@ export default function Grapes() {
     fetch("http://localhost:3000/api/products")
       .then((response) => response.json())
       .then((data) => {
-        setGrapes(data.meta.categories.grapes);
+        const sortedGrapes = data.meta.categories.grapes.sort((a, b) => b.count - a.count);
+        setGrapes(sortedGrapes);
       });
   }, []);
 
